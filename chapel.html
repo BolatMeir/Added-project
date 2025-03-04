@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapel Donations</title>
+    <link rel="stylesheet" href="chapel.css">
+</head>
+<body>
+    <div id="targetModal" class="modal">
+        <div class="modal-content">
+            <h2>Жинақ мақсатын орнату</h2>
+            <p>Жинағыңыз келетін соманы енгізіңіз:</p>
+            <form id="targetForm" onsubmit="setTarget(event)">
+                <div class="input-group">
+                    <span>$</span>
+                    <input type="number" id="targetAmount" min="1" step="0.01" placeholder="Мақсатты соманы енгізіңіз" required>
+                </div>
+                <button type="submit" class="modal-button">Жинауды бастау</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <svg class="church-icon" viewBox="0 0 24 24" width="48" height="48">
+                <path fill="currentColor" d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3m0 2.7l5.8 5.3h-1.3v8h-2v-6H9.5v6h-2v-8H6.2L12 5.7z"/>
+            </svg>
+            <h1>Копилка</h1>
+            <p>Ақшаңызды құрметпен және ризашылықпен салыңыз</p>
+        </header>
+
+        <main>
+            <div class="donation-box">
+                <div id="donation-container">
+                    <div class="progress-bar">
+                        <div id="progress" class="progress"></div>
+                    </div>
+                    <div class="total-amount">$<span id="total">0.00</span></div>
+                    <div class="target-display">
+                        Қойылған мақсат: $<span id="targetDisplay">0.00</span>
+                    </div>
+                </div>
+                <div class="donation-buttons">
+                    <button onclick="donate(0.25)">$0.25</button>
+                    <button onclick="donate(1)">$1</button>
+                    <button onclick="donate(5)">$5</button>
+                    <button onclick="donate(10)">$10</button>
+                    <button onclick="donate(20)">$20</button>
+                    <button onclick="donate(50)">$50</button>
+                    <button onclick="donate(100)">$100</button>
+                </div>
+            </div>
+
+            <div class="statistics">
+                <h2>Донаттардың статистикасы</h2>
+                <div class="stats-grid">
+                    <div class="stat">
+                        <div class="stat-value" id="total-donations">$0.00</div>
+                        <div class="stat-label">Жалпы жиналған ақша</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="donation-count">0</div>
+                        <div class="stat-label">Санау</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="average-donation">$0.00</div>
+                        <div class="stat-label">Орташа донат сомасы</div>
+                    </div>
+                </div>
+                <div class="progress-stat">
+                    <div class="stat-label">Арманға жетер прогресс</div>
+                    <div class="stat-value" id="progress-percentage">0%</div>
+                </div>
+                <div class="recent-donations">
+                    <h3>Соңғы донаттардың тізімі</h3>
+                    <div id="recent-list"></div>
+                </div>
+            </div>
+            <div class="reviews">
+                <h2>Піріклер</h2>
+                <form id="reviewForm" onsubmit="submitReview(event)" class="review-form">
+                    <div class="input-group">
+                        <input type="text" id="reviewName" placeholder="Сіздің есіміңіз" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="reviewText" placeholder="Өз пікірлеріңізді қалдырып кетіңіз ..." required></textarea>
+                    </div>
+                    <button type="submit" class="review-button">Піріклерді жібер</button>
+                </form>
+                <div class="reviews-list" id="reviewsList">
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="chapel.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

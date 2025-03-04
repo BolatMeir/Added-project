@@ -1,0 +1,383 @@
+ * { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+    color: #1a1a1a;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+}
+
+.modal h2 {
+    color: #2b3674;
+    margin-bottom: 1rem;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5rem 0;
+    gap: 0.5rem;
+}
+
+.input-group input {
+    padding: 0.5rem;
+    font-size: 1.25rem;
+    border: 2px solid #e9ecef;
+    border-radius: 0.5rem;
+    width: 200px;
+}
+
+.modal-button {
+    background: #2b3674;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.modal-button:hover {
+    background: #1a224d;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.church-icon {
+    color: #2b3674;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #2b3674;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: #6c757d;
+}
+
+main {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.donation-box {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#donation-container {
+    background: #f8f9fa;
+    height: 300px;
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: #e9ecef;
+}
+
+.progress {
+    height: 100%;
+    background: #2b3674;
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+.total-amount {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.target-display {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.donation-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 0.5rem;
+}
+
+button {
+    background: #2b3674;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.1s, background-color 0.2s;
+}
+
+button:hover {
+    background: #1a224d;
+    transform: translateY(-1px);
+}
+
+.statistics {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+.progress-stat {
+    text-align: center;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 0.5rem;
+}
+
+.recent-donations {
+    margin-top: 2rem;
+}
+
+.recent-donations h3 {
+    margin-bottom: 1rem;
+    color: #2b3674;
+}
+
+#recent-list {
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #2b3674 #f8f9fa;
+}
+
+#recent-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+#recent-list::-webkit-scrollbar-track {
+    background: #f8f9fa;
+    border-radius: 3px;
+}
+
+#recent-list::-webkit-scrollbar-thumb {
+    background: #2b3674;
+    border-radius: 3px;
+}
+
+.recent-donation {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    color: #6c757d;
+    font-size: 0.875rem;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.recent-donation:last-child {
+    border-bottom: none;
+}
+
+.coin, .bill {
+    position: absolute;
+    pointer-events: none;
+}
+
+.coin {
+    width: 30px;
+    height: 30px;
+    background: #ffd700;
+    border-radius: 50%;
+    border: 2px solid #e6c200;
+}
+
+.bill {
+    width: 40px;
+    height: 20px;
+    background: #43a047;
+    border-radius: 2px;
+}
+
+.reviews {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.reviews h2 {
+    color: #2b3674;
+    margin-bottom: 1.5rem;
+}
+
+.review-form {
+    margin-bottom: 2rem;
+}
+
+.review-form .input-group {
+    margin-bottom: 1rem;
+}
+
+.review-form input,
+.review-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e9ecef;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+.review-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.review-button {
+    background: #2b3674;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.review-button:hover {
+    background: #1a224d;
+}
+
+.reviews-list {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #2b3674 #f8f9fa;
+}
+
+.reviews-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.reviews-list::-webkit-scrollbar-track {
+    background: #f8f9fa;
+    border-radius: 3px;
+}
+
+.reviews-list::-webkit-scrollbar-thumb {
+    background: #2b3674;
+    border-radius: 3px;
+}
+
+.review-item {
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.review-item:last-child {
+    border-bottom: none;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.review-name {
+    font-weight: bold;
+    color: #2b3674;
+}
+
+.review-date {
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+.review-text {
+    color: #4a5568;
+    line-height: 1.5;
+} 
